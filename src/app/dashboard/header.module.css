@@ -2,10 +2,11 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  background: #2563eb;
+  border-bottom: 1px solid #1e40af;
+  padding: 1rem 1.8rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: white;
 }
 
 .headerContent {
@@ -20,6 +21,8 @@
   border-radius: 8px;
   font-size: 1.5rem;
   display: none;
+  color: white;
+  background: rgba(255,255,255,0.15);
 }
 
 .rightSection {
@@ -36,15 +39,16 @@
 .searchInput {
   width: 100%;
   padding: 0.65rem 1rem 0.65rem 2.75rem;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.3);
   border-radius: 9999px;
   font-size: 0.95rem;
+  color: #111827;
 }
 
 .searchInput:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: white;
 }
 
 .iconButton {
@@ -52,10 +56,11 @@
   font-size: 1.3rem;
   border-radius: 9999px;
   transition: background 0.2s;
+  color: white;
 }
 
 .iconButton:hover {
-  background: #f3f4f6;
+  background: rgba(255,255,255,0.2);
 }
 
 .userProfile {
@@ -69,10 +74,7 @@
   height: 38px;
   border-radius: 9999px;
   object-fit: cover;
-}
-
-.userInfo {
-  display: none;
+  border: 2px solid rgba(255,255,255,0.6);
 }
 
 .userName {
@@ -82,11 +84,10 @@
 
 .userRole {
   font-size: 0.8rem;
-  color: #6b7280;
+  opacity: 0.85;
   margin-top: -2px;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .mobileMenu { display: block; }
   .searchContainer { width: 240px; }

@@ -15,7 +15,7 @@ export default function Sidebar() {
     <div className={styles.sidebar}>
       <div className={styles.logo}>
         <div className={styles.logoIcon}>P</div>
-        <span>Preline</span>
+        <span>Soori</span>
       </div>
 
       <nav className={styles.nav}>
