@@ -1,0 +1,140 @@
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.addButton {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  background: #f9fafb;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.email {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.department {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.active {
+  background: #d1fae5;
+  color: #10b981;
+}
+
+.warning {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.progressContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progressText {
+  font-size: 0.8rem;
+  color: #6b7280;
+  min-width: 40px;
+}
+
+.progressBar {
+  flex: 1;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 9999px;
+}
+
+.editBtn {
+  color: #2563eb;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.editBtn:hover {
+  text-decoration: underline;
+}
