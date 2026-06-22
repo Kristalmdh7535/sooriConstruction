@@ -14,8 +14,14 @@ export default function Sidebar() {
   return (
     <div className={styles.sidebar}>
       <div className={styles.logo}>
-        <div className={styles.logoIcon}>P</div>
-        <span>Soori</span>
+        <img 
+        src= "/images/logo.jpg"
+        alt= "Soori Logo"
+        width= {88}
+        height= {68}
+        className={styles.logoImage}
+        // priority
+        />
       </div>
 
       <nav className={styles.nav}>
