@@ -44,7 +44,6 @@
   font-weight: 500;
 }
 
-/* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .card {
     background: #1f2937;

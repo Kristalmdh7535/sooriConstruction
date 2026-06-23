@@ -1,5 +1,8 @@
 'use client';
 import styles from './header.module.css';
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { MdOutlineQueryStats } from "react-icons/md";
+
 
 export default function Header() {
   return (
@@ -20,8 +23,8 @@ export default function Header() {
           </div>
 
           {/* Icons */}
-          <button className={styles.iconButton}>🛎️</button>
-          <button className={styles.iconButton}>📊</button>
+          <button className={styles.iconButton}><IoMdNotificationsOutline /></button>
+          <button className={styles.iconButton}><MdOutlineQueryStats/></button>
 
           {/* User */}
           <div className={styles.userProfile}>

@@ -46,7 +46,7 @@ export default function UsersTable() {
                   </div>
                 </td>
                 <td>
-                  <div>{user.position}</div>
+                  <div className={styles.position}>{user.position}</div>
                   <div className={styles.department}>{user.department}</div>
                 </td>
                 <td>

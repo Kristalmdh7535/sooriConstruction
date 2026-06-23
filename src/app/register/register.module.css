@@ -68,10 +68,6 @@
   font-size: 15.5px;
 }
 
-.field input::placeholder {
-  color: #9ca3af;
-}
-
 .field input:focus,
 .field select:focus {
   background-color: #ffffff;

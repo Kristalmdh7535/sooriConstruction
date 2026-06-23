@@ -132,11 +132,18 @@
   margin-top: 20px;
   font-size: 15px;
   color: #4b5563;
+  margin-bottom: 1rem;
 }
 
 .link {
   color: #2563eb;
   font-weight: 500;
+}
+
+.forgotLink{
+  color: #2563eb;
+  font-weight: 500;
+  margin-left: 5.8rem;
 }
 
 .link:hover {

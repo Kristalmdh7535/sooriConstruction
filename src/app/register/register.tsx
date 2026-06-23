@@ -11,9 +11,16 @@ type RegisterFormData = {
   middleName: string;
   lastName: string;
   gender: 'male' | 'female' | 'other';
-  birthDate: string;
+  // birthDate: string;
   mobileNo: string;
   photo?: File | null;
+};
+
+type RegisterResponse = {
+  success?: boolean;
+  message?: string;
+  token?: string;
+  user?: any;
 };
 
 export default function RegisterForm() {
@@ -25,7 +32,7 @@ export default function RegisterForm() {
     middleName: '',
     lastName: '',
     gender: 'male',
-    birthDate: '',
+    // birthDate: '',
     mobileNo: '',
     photo: null,
   });
@@ -62,13 +69,13 @@ export default function RegisterForm() {
     payload.append('middleName', formData.middleName);
     payload.append('lastName', formData.lastName);
     payload.append('gender', formData.gender);
-    if (formData.birthDate) payload.append('birthDate', formData.birthDate);
+    // if (formData.birthDate) payload.append('birthDate', formData.birthDate);
     if (formData.mobileNo) payload.append('mobileNo', formData.mobileNo);
     if (formData.photo) payload.append('photo', formData.photo);
 
     try {
       const res = await fetch('/api/register', { method: 'POST', body: payload });
-      const data = await res.json();
+      const data: RegisterResponse= await res.json();
 
       if (!res.ok) throw new Error(data.message || 'Registration failed');
 
@@ -156,18 +163,18 @@ export default function RegisterForm() {
                 <option value="other">Other</option>
               </select>
             </div>
-            <div className={styles.field}>
+            {/* <div className={styles.field}>
               <label>Birth Date</label>
               <input type="date" name="birthDate" value={formData.birthDate} onChange={handleChange} />
-            </div>
+            </div> */}
             <div className={styles.field}>
               <label>Mobile No</label>
               <input type="tel" name="mobileNo" placeholder="Mobile number" value={formData.mobileNo} onChange={handleChange} maxLength={15} />
             </div>
-            <div className={styles.field}>
+            {/* <div className={styles.field}>
               <label>Profile Photo</label>
               <input type="file" accept="image/*" onChange={handleFileChange} />
-            </div>
+            </div> */}
             <button type="submit" className={styles.submitBtn} disabled={loading}>
               {loading ? 'Creating Account...' : 'Sign Up'}
             </button>
