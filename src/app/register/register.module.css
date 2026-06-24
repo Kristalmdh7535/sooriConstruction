@@ -62,8 +62,6 @@
   line-height: 1.5;
 }
 
-/* ─── Form ─── */
-
 .form {
   display: flex;
   flex-direction: column;

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import TextType from './TextType';
 import styles from './login.module.css';
 
 type LoginResponse = {
@@ -72,6 +73,19 @@ export default function LoginForm() {
         className={styles.bgImage}
       />
       <div className={styles.bgOverlay} />
+
+      <div className={styles.leftContent}>
+        <TextType 
+          text={['YourCompany.', 'Build Better.', 'Innovate Daily.']} 
+          as="h2"
+          typingSpeed={60}
+          pauseDuration={2500}
+          className={styles.companyName}
+        />
+        <p className={styles.companyTagline}>
+          Empowering workflows through exceptional software architecture.
+        </p>
+      </div>
 
       <div className={styles.formCard}>
         <div className={styles.formHeader}>
