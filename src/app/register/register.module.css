@@ -265,8 +265,6 @@
   color: #6b7280;
 }
 
-/* ─── Alerts ─── */
-
 .error,
 .success {
   padding: 10px 14px;
@@ -285,8 +283,6 @@
   background: #14532d;
 }
 
-/* ─── Mobile: stack vertically ─── */
-
 @media (max-width: 1023px) {
   .main {
     flex-direction: column;
@@ -298,9 +294,7 @@
 }
 
 .logoImg {
-  width: 108px;
-  height: 100px;
+  width: 72px;
   border-radius: 8px;
   display: block;
-  background: none;
 }
