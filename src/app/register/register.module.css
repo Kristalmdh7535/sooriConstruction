@@ -190,7 +190,7 @@
 }
 
 .termsLink {
-  color: rgba(255, 255, 255, 0.85);
+  color: #2563eb;
   font-weight: 600;
 }
 
@@ -201,8 +201,8 @@
 .submitBtn {
   width: 100%;
   height: 40px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #111827;
+  background: #2563eb;
+  color: #ffff;
   border: none;
   border-radius: 8px;
   font-size: 14px;
@@ -229,7 +229,7 @@
 }
 
 .link {
-  color: #ffffff;
+  color: #2563eb;
   font-weight: 700;
 }
 
