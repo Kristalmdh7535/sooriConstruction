@@ -11,7 +11,6 @@ type RegisterFormData = {
   middleName: string;
   lastName: string;
   gender: 'male' | 'female' | 'other';
-  // birthDate: string;
   mobileNo: string;
   photo?: File | null;
 };
@@ -32,7 +31,6 @@ export default function RegisterForm() {
     middleName: '',
     lastName: '',
     gender: 'male',
-    // birthDate: '',
     mobileNo: '',
     photo: null,
   });
@@ -69,16 +67,13 @@ export default function RegisterForm() {
     payload.append('middleName', formData.middleName);
     payload.append('lastName', formData.lastName);
     payload.append('gender', formData.gender);
-    // if (formData.birthDate) payload.append('birthDate', formData.birthDate);
     if (formData.mobileNo) payload.append('mobileNo', formData.mobileNo);
     if (formData.photo) payload.append('photo', formData.photo);
 
     try {
       const res = await fetch('/api/register', { method: 'POST', body: payload });
-      const data: RegisterResponse= await res.json();
-
+      const data: RegisterResponse = await res.json();
       if (!res.ok) throw new Error(data.message || 'Registration failed');
-
       setSuccess('Account created successfully!');
     } catch (err: any) {
       setError(err.message);
@@ -89,40 +84,145 @@ export default function RegisterForm() {
 
   return (
     <main className={styles.main}>
-      <div className={styles.container}>
-        <div className={styles.formSide}>
-          <div className={styles.logo}>
-            <img src="/images/logo.jpg" alt="logo" />
+
+      {/* LEFT: image panel */}
+      <div className={styles.imageSide}>
+        <img
+          src="/images/RegisterBackground.jpg"
+          alt=""
+          aria-hidden="true"
+          className={styles.image}
+        />
+        <div className={styles.imageOverlay} />
+        <div className={styles.imageContent}>
+          <a href="/">
+            <img src="/images/logo.jpg" alt="logo" className={styles.logoImg}  />
+          </a>
+          <div className={styles.imageText}>
+            <h2 className={styles.imageHeading}>Sign Up!</h2>
+            <p className={styles.imageSubtext}>
+              Join us and explore endless possibilities.
+            </p>
           </div>
-          <h1 className={styles.title}>Sign Up</h1>
+        </div>
+      </div>
+
+      {/* RIGHT: form panel */}
+      <div className={styles.formSide}>
+        <div className={styles.formInner}>
+          <div className={styles.formHeader}>
+            <h1 className={styles.title}>Create your account</h1>
+            <p className={styles.subtitle}>
+              Set up your account the straightforward way — fill in, submit, done.
+            </p>
+          </div>
+
+          {error && <p className={styles.error}>{error}</p>}
+          {success && <p className={styles.success}>{success}</p>}
+
           <form className={styles.form} onSubmit={handleSubmit}>
-            <div className={styles.field}>
-              <label>Username</label>
-              <input
-                type="text"
-                name="username"
-                placeholder="Enter username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-              />
+
+            <div className={styles.row}>
+              <div className={styles.field}>
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="John"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  maxLength={50}
+                />
+              </div>
+              <div className={styles.field}>
+                <label htmlFor="middleName">Middle Name</label>
+                <input
+                  type="text"
+                  id="middleName"
+                  name="middleName"
+                  placeholder="(optional)"
+                  value={formData.middleName}
+                  onChange={handleChange}
+                  maxLength={50}
+                />
+              </div>
             </div>
+
+            <div className={styles.row}>
+              <div className={styles.field}>
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Doe"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  maxLength={50}
+                />
+              </div>
+              <div className={styles.field}>
+                <label htmlFor="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="johndoe"
+                  value={formData.username}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
             <div className={styles.field}>
-              <label>Email</label>
+              <label htmlFor="email">Email Address</label>
               <input
                 type="email"
+                id="email"
                 name="email"
-                placeholder="john@example.com"
+                placeholder="you@example.com"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
             </div>
+
+            <div className={styles.row}>
+              <div className={styles.field}>
+                <label htmlFor="gender">Gender</label>
+                <select
+                  id="gender"
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div className={styles.field}>
+                <label htmlFor="mobileNo">Mobile No</label>
+                <input
+                  type="tel"
+                  id="mobileNo"
+                  name="mobileNo"
+                  placeholder="+977 98XXXXXXXX"
+                  value={formData.mobileNo}
+                  onChange={handleChange}
+                  maxLength={15}
+                />
+              </div>
+            </div>
+
             <div className={styles.field}>
-              <label>Password</label>
+              <label htmlFor="password">Password</label>
               <div className={styles.passwordWrapper}>
                 <input
-                  type={isVisible ? "text" : "password"}
+                  type={isVisible ? 'text' : 'password'}
+                  id="password"
                   name="password"
                   placeholder="••••••••"
                   value={formData.password}
@@ -133,71 +233,43 @@ export default function RegisterForm() {
                   type="button"
                   onClick={toggleVisibility}
                   className={styles.toggleBtn}
+                  aria-label="Toggle password visibility"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-                    <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" />
-                    {!isVisible && (
-                      <path d="M15 15l98 98" stroke="currentColor" strokeWidth="10" strokeLinecap="round" />
-                    )}
-                  </svg>
+                  {isVisible ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M10.585 10.587a2 2 0 0 0 2.829 2.828" />
+                      <path d="M16.681 16.673a8.717 8.717 0 0 1 -4.681 1.327c-3.6 0 -6.6 -2 -9 -6c1.272 -2.12 2.712 -3.678 4.32 -4.674m2.86 -1.146a9.055 9.055 0 0 1 1.82 -.18c3.6 0 6.6 2 9 6c-.666 1.11 -1.379 2.067 -2.138 2.87" />
+                      <path d="M3 3l18 18" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                      <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                    </svg>
+                  )}
                 </button>
               </div>
             </div>
-            <div className={styles.field}>
-              <label>First Name</label>
-              <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} maxLength={50} />
-            </div>
-            <div className={styles.field}>
-              <label>Middle Name</label>
-              <input type="text" name="middleName" value={formData.middleName} onChange={handleChange} maxLength={50} />
-            </div>
-            <div className={styles.field}>
-              <label>Last Name</label>
-              <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} maxLength={50} />
-            </div>
-            <div className={styles.field}>
-              <label>Gender</label>
-              <select name="gender" value={formData.gender} onChange={handleChange}>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            {/* <div className={styles.field}>
-              <label>Birth Date</label>
-              <input type="date" name="birthDate" value={formData.birthDate} onChange={handleChange} />
-            </div> */}
-            <div className={styles.field}>
-              <label>Mobile No</label>
-              <input type="tel" name="mobileNo" placeholder="Mobile number" value={formData.mobileNo} onChange={handleChange} maxLength={15} />
-            </div>
-            {/* <div className={styles.field}>
-              <label>Profile Photo</label>
-              <input type="file" accept="image/*" onChange={handleFileChange} />
-            </div> */}
+
+            <p className={styles.terms}>
+              By creating an account, you agree to our{' '}
+              <a href="#_" className={styles.termsLink}>Terms of service</a>
+              {' '}and{' '}
+              <a href="#_" className={styles.termsLink}>Privacy Policy</a>.
+            </p>
+
             <button type="submit" className={styles.submitBtn} disabled={loading}>
-              {loading ? 'Creating Account...' : 'Sign Up'}
+              {loading ? 'Creating Account...' : 'Create Account'}
             </button>
           </form>
-          <div className={styles.footerText}>
-            Have an account?{' '}
-            <a href="/login" className={styles.link}>Log in</a>
-          </div>
-        </div>
-        <div className={styles.imageSide}>
-          <img 
-            src="/images/RegisterBackground.jpg" 
-            alt="Sign up illustration" 
-            className={styles.image}
-          />
-          <div className={styles.overlay}>
-            <h2>Sign Up!</h2>
-            {/* <p>Join us and explore endless possibilities.</p> */}
-          </div>
+
+          <p className={styles.footerText}>
+            Already have an account?{' '}
+            <a href="/login" className={styles.link}>Sign in</a>
+          </p>
         </div>
       </div>
-      {/* {error && <p className={styles.error}>{error}</p>} */}
-      {/* {success && <p className={styles.success}>{success}</p>} */}
+
     </main>
   );
 }
