@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import TextType from '../login/TextType';
 import styles from './register.module.css';
 
 type RegisterFormData = {
@@ -91,6 +92,19 @@ export default function RegisterForm() {
         className={styles.bgImage}
       />
       <div className={styles.bgOverlay} />
+
+      <div className={styles.leftContent}>
+        <TextType
+        text= {['YouCompany.', 'Build Better.' ,'InnovateDaily.']}
+        as="h2"
+        typingSpeed={60}
+          pauseDuration={2500}
+          className={styles.companyName}
+        />
+        <p className={styles.companyTagline}>
+          Empowering workflows through exceptional software architecture.
+        </p>
+      </div>
 
       <div className={styles.formCard}>
         <div className={styles.formHeader}>

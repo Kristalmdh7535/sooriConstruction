@@ -4,8 +4,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding: 40px 60px;
+  justify-content: space-between;
+  padding: 40px 10%;
+  box-sizing: border-box;
 }
 
 .bgImage {
@@ -25,7 +26,40 @@
   z-index: 1;
 }
 
-/* ─── Glass form card ─── */
+.leftContent {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  color: #ffffff;
+  padding-right: 40px;
+}
+
+.companyName {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px 0;
+}
+
+.companyName :global(.text-type__content) {
+  background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.companyName :global(.text-type__cursor) {
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.companyTagline {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
 
 .formCard {
   position: relative;
@@ -40,8 +74,6 @@
   padding: 36px 36px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
-
-/* ─── Header ─── */
 
 .formHeader {
   margin-bottom: 24px;
@@ -118,8 +150,6 @@
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
-/* ─── Password ─── */
-
 .passwordWrapper {
   position: relative;
 }
@@ -152,8 +182,6 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* ─── Terms ─── */
-
 .terms {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.55);
@@ -169,8 +197,6 @@
 .termsLink:hover {
   color: #ffffff;
 }
-
-/* ─── Submit ─── */
 
 .submitBtn {
   width: 100%;
@@ -194,8 +220,6 @@
   cursor: not-allowed;
 }
 
-/* ─── Footer ─── */
-
 .footerText {
   text-align: left;
   margin-top: 16px;
@@ -212,8 +236,6 @@
 .link:hover {
   text-decoration: underline;
 }
-
-/* ─── Alerts ─── */
 
 .error,
 .success {
@@ -233,9 +255,10 @@
   background: rgba(20, 83, 45, 0.7);
 }
 
-/* ─── Mobile ─── */
-
-@media (max-width: 768px) {
+@media (max-width: 968px) {
+  .leftContent {
+    display: none;
+  }
   .main {
     justify-content: center;
     padding: 24px 16px;
