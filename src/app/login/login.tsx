@@ -146,7 +146,7 @@ export default function LoginForm() {
             </div>
           </div>
 
-          <a href="/forgot-password" className={styles.forgotLink}>Forgot Password?</a>
+          <a href="/reset-page" className={styles.forgotLink}>Forgot Password?</a>
 
           <p className={styles.terms}>
             By signing in, you agree to our{' '}
