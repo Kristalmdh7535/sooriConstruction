@@ -83,7 +83,7 @@ export default function RegisterForm() {
     }
   };
 
-  return (
+  return ( 
     <main className={styles.main}>
       <img
         src="/images/RegisterBackground.jpg"
@@ -114,8 +114,8 @@ export default function RegisterForm() {
           </p>
         </div>
 
-        {error && <p className={styles.error}>{error}</p>}
-        {success && <p className={styles.success}>{success}</p>}
+        {/* {error && <p className={styles.error}>{error}</p>}
+        {success && <p className={styles.success}>{success}</p>} */}
 
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.row}>

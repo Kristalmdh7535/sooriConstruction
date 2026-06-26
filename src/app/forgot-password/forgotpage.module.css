@@ -95,12 +95,6 @@
   gap: 16px;
 }
 
-.row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
 .field {
   display: flex;
   flex-direction: column;
@@ -113,8 +107,7 @@
   color: #374151;
 }
 
-.field input,
-.field select {
+.field input {
   height: 46px;
   padding: 0 16px;
   background: #ffffff;
@@ -127,8 +120,7 @@
   transition: all 0.2s ease;
 }
 
-.field input:focus,
-.field select:focus {
+.field input:focus {
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
@@ -170,17 +162,6 @@
   height: 20px;
 }
 
-.terms {
-  font-size: 0.8rem;
-  color: #6b7280;
-  margin: 8px 0;
-  text-align: center;
-}
-
-.termsLink {
-  color: #2563eb;
-}
-
 .submitBtn {
   width: 100%;
   height: 46px;
@@ -203,22 +184,6 @@
   cursor: not-allowed;
 }
 
-.footerText {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-
-.link {
-  color: #2563eb;
-  font-weight: 600;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
 .error,
 .success {
   padding: 12px 16px;
@@ -238,6 +203,30 @@
   background: #ecfdf5;
   color: #10b981;
   border: 1px solid #6ee7b7;
+}
+
+.saveBtn{
+  width: 100%;
+  height: 46px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.submitBtn:hover,
+.saveBtn:hover {
+  background: #1d4ed8;
+}
+
+.submitBtn:disabled,
+.saveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 @media (max-width: 968px) {

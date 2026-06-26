@@ -60,6 +60,7 @@
   margin: 0;
 }
 
+/* ==================== FORM CARD ==================== */
 .formCard {
   position: relative;
   z-index: 2;
@@ -73,7 +74,7 @@
 }
 
 .formHeader {
-  margin-bottom: 28px;
+  margin-bottom: 32px;   /* Increased spacing */
 }
 
 .title {
@@ -89,16 +90,11 @@
   margin: 0;
 }
 
+/* Form */
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 18px;
 }
 
 .field {
@@ -113,8 +109,7 @@
   color: #374151;
 }
 
-.field input,
-.field select {
+.field input {
   height: 46px;
   padding: 0 16px;
   background: #ffffff;
@@ -127,13 +122,13 @@
   transition: all 0.2s ease;
 }
 
-.field input:focus,
-.field select:focus {
+.field input:focus {
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
+/* Autofill Fix */
 .field input:-webkit-autofill,
 .field input:-webkit-autofill:hover,
 .field input:-webkit-autofill:focus {
@@ -142,46 +137,8 @@
   background: #ffffff !important;
 }
 
-.passwordWrapper {
-  position: relative;
-}
-
-.passwordWrapper input {
-  padding-right: 50px;
-}
-
-.toggleBtn {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #6b7280;
-}
-
-.toggleBtn:hover {
-  color: #374151;
-}
-
-.toggleBtn svg {
-  width: 20px;
-  height: 20px;
-}
-
-.terms {
-  font-size: 0.8rem;
-  color: #6b7280;
-  margin: 8px 0;
-  text-align: center;
-}
-
-.termsLink {
-  color: #2563eb;
-}
-
-.submitBtn {
+/* Button */
+.resetLinkButton {
   width: 100%;
   height: 46px;
   background: #2563eb;
@@ -192,33 +149,14 @@
   font-weight: 600;
   cursor: pointer;
   margin-top: 8px;
+  transition: all 0.2s;
 }
 
-.submitBtn:hover {
+.resetLinkButton:hover {
   background: #1d4ed8;
 }
 
-.submitBtn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.footerText {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-
-.link {
-  color: #2563eb;
-  font-weight: 600;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
+/* Messages */
 .error,
 .success {
   padding: 12px 16px;
@@ -240,6 +178,7 @@
   border: 1px solid #6ee7b7;
 }
 
+/* Responsive */
 @media (max-width: 968px) {
   .leftContent {
     display: none;

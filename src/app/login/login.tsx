@@ -76,10 +76,10 @@ export default function LoginForm() {
 
       <div className={styles.leftContent}>
         <TextType 
-          text={['YourCompany.', 'Build Better.', 'Innovate Daily.']} 
+          text={['Innovate Daily.', 'Build Better.', 'Company Name']} 
           as="h2"
           typingSpeed={60}
-          pauseDuration={2500}
+          pauseDuration= {2500}
           className={styles.companyName}
         />
         <p className={styles.companyTagline}>
@@ -146,7 +146,7 @@ export default function LoginForm() {
             </div>
           </div>
 
-          <a href="#" className={styles.forgotLink}>Forgot Password?</a>
+          <a href="/forgot-password" className={styles.forgotLink}>Forgot Password?</a>
 
           <p className={styles.terms}>
             By signing in, you agree to our{' '}
@@ -161,7 +161,7 @@ export default function LoginForm() {
         </form>
 
         <p className={styles.footerText}>
-          Don&apos;t have an account?{' '}
+          Don't have an account?{' '}
           <a href="/register" className={styles.link}>Sign Up</a>
         </p>
       </div>
